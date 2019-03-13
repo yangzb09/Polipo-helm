@@ -1,0 +1,13 @@
+logSyslog = true
+socksParentProxy = "SSR_HOST:SSR_PORT"
+socksProxyType = socks5
+logFile = /root/polipo/polipo.log
+logLevel = 4
+proxyAddress = "0.0.0.0"
+proxyPort = 31080
+chunkHighMark = 50331648
+objectHighMark = 16384
+
+serverMaxSlots = 64
+serverSlots = 16
+serverSlots1 = 32

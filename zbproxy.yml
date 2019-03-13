@@ -1,0 +1,27 @@
+version: '3'
+services:
+  ssr-node:
+    image: yangzb09/zbr:0.2
+    container_name: ssr-sock
+    networks:
+      ssr-net:
+        ipv4_address: 10.5.0.5
+  polipo-node:
+    image: yangzb09/zbpo:0.2
+    container_name: polipo-http
+    environment:
+      - SSR_HOST=10.5.0.5
+      - SSR_PORT=38321
+    ports:
+      - 31080:31080
+    networks:
+      ssr-net:
+        ipv4_address: 10.5.0.6
+    depends_on:
+     - ssr-node
+networks:
+  ssr-net:
+    driver: bridge
+    ipam:
+        config:
+          - subnet: 10.5.0.0/16
